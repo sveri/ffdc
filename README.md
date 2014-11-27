@@ -16,6 +16,7 @@ clj/cljs file in the project, then do `M-x cider-jack-in`. Make sure
 CIDER is up to date).
 
 Open db.clj and copy the complete comment block into your repl and execute it. This should setup the datomic database.
+Then restart the REPL.
 
 ## Running it
 
@@ -31,6 +32,11 @@ Both with password: 'admin'
 ## Adapting it
 The whole project is namespaced with de.sveri.structconverter. Find a replace should do its job to put it in your namespace
 accordingly.
+
+## FAQ
+* I get this error: #<CompilerException java.lang.RuntimeException: Could not find db in catalog, compiling:(server.clj:46:12)
+You did not initalize your database correctly. Look at friendui-config.edn for the uri and the partition id,
+also into the two edn files in resources/db
 
 ## License
 Distributed under the Eclipse Public License either version 1.0 or any later version.

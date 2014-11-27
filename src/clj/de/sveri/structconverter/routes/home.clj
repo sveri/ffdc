@@ -22,12 +22,8 @@
 (defn cookies [db-val uri]
   (base/base {:title "Cookies" :content (cookies-snip) :uri uri} (f-d-db/get-loggedin-user-role db-val)))
 
-(html/defsnippet index-snip (str base/template-path "home/index.html") [:#content] [])
 (defn index [db-val uri]
   (base/base {:title "Title" :uri uri} (f-d-db/get-loggedin-user-role db-val)))
-  ;(base/base {:title "YouDist Home" :content (index-snip) :uri uri} (f-d-db/get-loggedin-user-role db-val)))
-
-;(html/deftemplate index (str base/template-path "base.html") [] [:body] (if is-dev? inject-devmode-html identity))
 
 (defn home-routes [db-conn]
     (routes

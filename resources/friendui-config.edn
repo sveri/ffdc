@@ -19,8 +19,8 @@ Your StructConverter-Team"
  :user-signup-redirect       "/user/accountcreated"         ; default uri - is provided by friendui
  :account-activated-redirect "/user/accountactivated"       ; default uri - is provided by friendui
  :send-activation-email      true                           ; email on activation can be turned off to fit your needs
- :partition-id               :db
+ :partition-id               :structconverter
 
- :db-uri                     "datomic:dev://localhost:4334/db"
+ :db-uri                     "datomic:dev://localhost:4334/structconverter"
 
  }
