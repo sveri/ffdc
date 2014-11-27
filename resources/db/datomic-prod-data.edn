@@ -1,0 +1,8 @@
+[
+ {:db/id          #db/id[:structconverter -1000001], :user/email "admin@localhost.de"
+  :user/password  "$2a$10$u0gsPO8je5Km9REN1UVJUuc3q3QEzZFRIJsPZeX4VqhzBBQad4tw2"
+  :user/activated true :user/role :user/admin :user/activationid "id1"}
+ {:db/id          #db/id[:structconverter -1000002], :user/email "free@localhost.de"
+  :user/password  "$2a$10$u0gsPO8je5Km9REN1UVJUuc3q3QEzZFRIJsPZeX4VqhzBBQad4tw2"
+  :user/activated true :user/role :user/free :user/activationid "id2"}
+ ]
