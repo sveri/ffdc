@@ -5,7 +5,7 @@
 
 (def template-path "templates/")
 
-(def logged-in-menu [{:url "/test-link" :text "Test Link" :role :user/free}
+(def logged-in-menu [{:url "/csv" :text "CSV" :role :user/free}
                      {:url "/user/admin" :text "User Administration" :role :user/admin}])
 
 (def footer-menu [{:url "/contact" :text "Contact"}
@@ -47,10 +47,13 @@
                  [:#header-menu] (when (f-user/is-logged-in?) (maybe-substitute (header-menu-snippet uri role))))
 
 (html/deftemplate base (str template-path "base.html")
-                  [{:keys [title content uri]} & [role]]
+                  [{:keys [title content uri init]} & [role]]
                   [:#title] (maybe-content title)
                   [:#header-menu-login-wrapper] (html/content (header-menu-login-wrapper-snippet uri role))
                   [:#footer-menu-wrapper] (html/content (map #(header-menu-link-snippet uri %) footer-menu))
                   [:#content] (maybe-substitute content)
-                  [:body] (if is-dev? inject-devmode-html identity))
+                  [:body] (if is-dev? inject-devmode-html identity)
+                  [:body] (if init (html/append (html/html [:script
+                                                            {:type "text/javascript"}
+                                                            (str init)])) identity))
 

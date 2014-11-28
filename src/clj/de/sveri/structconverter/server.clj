@@ -16,6 +16,7 @@
             [datomic.api :as d]
             [de.sveri.friendui.routes.user :refer [friend-routes]]
             [de.sveri.structconverter.routes.home :as home-routes]
+            [de.sveri.structconverter.routes.csv :as csv-routes]
             [de.sveri.structconverter.db :as db]
             [de.sveri.structconverter.globals :as glob]
             [cemerick.friend :as friend]
@@ -30,6 +31,7 @@
     (let [db-conn (d/connect glob/db-uri)]
       (routes (friend-routes (db/FrienduiStorageImpl db-conn))
               (home-routes/home-routes db-conn)
+              (csv-routes/csv-routes db-conn)
               (GET "/*" req (home-routes/index (db/get-db-val db-conn) "/"))))
     (friend/authenticate (friend-service/friend-settings (db/get-db-val-fn (d/connect glob/db-uri))))
     (wrap-noir-validation)

@@ -11,8 +11,8 @@
   (comp
      (set-attr :class "is-dev")
      (prepend (html [:script {:type "text/javascript" :src "/js/out/goog/base.js"}]))
-     ;(prepend (html [:script {:type "text/javascript" :src "/react/react.js"}]))
-     (append  (html [:script {:type "text/javascript"} "goog.require('structconverter.dev')"]))))
+     (append  (html [:script {:type "text/javascript"} "goog.require('structconverter.dev')"]))
+     (append  (html [:script {:type "text/javascript"} "goog.require('de.sveri.structconverter.csv')"]))))
 
 (defn browser-repl []
   (piggieback/cljs-repl :repl-env (weasel/repl-env :ip "0.0.0.0" :port 9001)))
